@@ -1099,7 +1099,7 @@ section.section {
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .site-footer a { color: rgba(255,255,255,.7); transition: color .15s; font-size: .95rem; }
 .site-footer a:hover { color: var(--primary); }
-.footer-bottom {
+.site-footer .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
   margin-top: 50px;
   padding-top: 24px;
@@ -1111,7 +1111,7 @@ section.section {
   font-size: .85rem;
   color: rgba(255,255,255,.5);
 }
-.footer-bottom .socials { display: flex; gap: 8px; margin-left: auto; }
+.site-footer .footer-bottom .socials { display: flex; gap: 8px; margin-left: auto; }
 .footer-bottom .socials a {
   width: 36px; height: 36px; border-radius: 50%;
   background: rgba(255,255,255,.08);
