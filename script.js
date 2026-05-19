@@ -148,23 +148,25 @@
   });
 
 
-  /* -------- Contact form validation -------- */
+  /* -------- Contact form -------- */
   const form = document.querySelector('#contact-form');
   if (form) {
     const status = form.querySelector('.form-status');
-    form.addEventListener('submit', (e) => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const WA_URL = 'https://wa.me/553499166794?text=' +
+      encodeURIComponent('Olá! Acabei de enviar uma mensagem pelo formulário do site da JP Topografia. Gostaria de continuar o atendimento por aqui.');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Validação
       let ok = true;
       form.querySelectorAll('[required]').forEach(input => {
         const field = input.closest('.field');
         const value = input.value.trim();
         let valid = value.length > 0;
-        if (input.type === 'email' && valid) {
-          valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        }
-        if (input.type === 'tel' && valid) {
-          valid = value.replace(/\D/g, '').length >= 8;
-        }
+        if (input.type === 'email' && valid) valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        if (input.type === 'tel'   && valid) valid = value.replace(/\D/g, '').length >= 8;
         if (!valid) { field.classList.add('invalid'); ok = false; }
         else field.classList.remove('invalid');
       });
@@ -173,11 +175,34 @@
         status.textContent = 'Por favor, preencha os campos destacados corretamente.';
         return;
       }
-      status.className = 'form-status success';
-      status.textContent = 'Obrigado! Recebemos sua mensagem. Em breve entraremos em contato.';
-      form.reset();
+
+      // Envio
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      try {
+        const res  = await fetch('send.php', { method: 'POST', body: new FormData(form) });
+        const data = await res.json();
+
+        if (data.ok) {
+          form.reset();
+          status.className = 'form-status success';
+          status.textContent = 'Mensagem enviada! Redirecionando para o WhatsApp…';
+          setTimeout(() => { window.open(WA_URL, '_blank'); }, 1500);
+        } else {
+          throw new Error(data.error || 'Erro desconhecido.');
+        }
+      } catch (err) {
+        status.className = 'form-status error';
+        status.textContent = err.message || 'Falha ao enviar. Tente novamente.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Enviar mensagem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+      }
     });
-    // Clear invalid on input
+
     form.querySelectorAll('input, textarea, select').forEach(el => {
       el.addEventListener('input', () => el.closest('.field')?.classList.remove('invalid'));
     });
