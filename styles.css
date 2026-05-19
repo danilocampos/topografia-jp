@@ -871,7 +871,7 @@ section.section {
   inset: 0;
   background-image:
     linear-gradient(rgba(6,24,47,.75), rgba(6,24,47,.95)),
-    url("https://images.unsplash.com/photo-1590254553894-03d24dff7032?auto=format&fit=crop&w=2000&q=80");
+    url("https://images.unsplash.com/photo-1730057407999-37a10d4b8cff?auto=format&fit=crop&w=2000&q=80");
   background-size: cover;
   background-position: center;
   pointer-events: none;
