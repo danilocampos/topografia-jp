@@ -814,6 +814,14 @@ section.section {
   position: relative;
   overflow: hidden;
 }
+.testimonials::before {
+  content: "";
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 60%; aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in oklab, var(--primary) 40%, transparent), transparent 70%);
+  pointer-events: none;
+}
 .testimonials .container {
   display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
   position: relative;
