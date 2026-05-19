@@ -626,7 +626,7 @@ section.section {
 .projects-grid .p2 { grid-column: span 2; }
 .projects-grid .p3 { grid-column: span 1; grid-row: span 1; }
 .projects-grid .p4 { grid-column: span 1; }
-.projects-grid .p5 { grid-column: span 2; }
+.projects-grid .p5 { grid-column: span 4; }
 @media (max-width: 980px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
   .projects-grid .p1 { grid-column: span 2; grid-row: auto; }
