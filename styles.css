@@ -809,7 +809,7 @@ section.section {
 
 /* ============== Testimonials ============== */
 .testimonials {
-  background: var(--ink);
+  background: var(--navy-900);
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -844,18 +844,6 @@ section.section {
 .tcard .stars { color: #FFD66B; font-size: .9rem; letter-spacing: 2px; }
 .tcard blockquote { margin: 0; color: rgba(255,255,255,.85); font-size: .98rem; line-height: 1.55; }
 
-.testimonials-bg-text {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: clamp(7rem, 16vw, 18rem);
-  font-weight: 900;
-  color: rgba(255,255,255,.025);
-  letter-spacing: -0.05em;
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 0;
-}
 .testimonials .left, .testimonials .quotes { position: relative; z-index: 1; }
 
 /* ============== FAQ ============== */
