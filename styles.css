@@ -283,11 +283,11 @@ p  { margin: 0 0 1em; text-wrap: pretty; }
   min-width: 177.78vh;
   pointer-events: none;
 }
-.hero-video-bg::after {
-  content: "";
+.video-block {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background: transparent;
 }
 .hero::after {
   content: "";
