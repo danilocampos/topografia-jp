@@ -245,6 +245,118 @@
   }
 
 
+  /* -------- Service Modals -------- */
+  const SVC_DATA = {
+    'Levantamento Topográfico': {
+      desc: 'O levantamento topográfico é o primeiro passo para qualquer projeto bem executado. Ele fornece informações precisas do terreno: medidas, altitudes, divisas, construções existentes, vegetação e demais características relevantes.',
+      use: 'Projetos de engenharia, obras, loteamentos, estradas, terraplenagem, regularizações e estudos técnicos.',
+      benefits: 'Precisão nas decisões, redução de riscos, economia de tempo e maior qualidade no resultado final do projeto.',
+      when: 'Antes de iniciar qualquer projeto ou obra que envolva intervenções no terreno.',
+      img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+      highlight: 'Equipamentos de alta precisão e equipe técnica especializada para resultados confiáveis.',
+      wa: 'Olá! Gostaria de saber mais sobre o serviço de Levantamento Topográfico.'
+    },
+    'Levantamento Planialtimétrico': {
+      desc: 'Combina dados planimétricos (posição horizontal) e altimétricos (cotas e alturas), gerando curvas de nível e plantas completas do terreno com toda a informação necessária para projetos precisos.',
+      use: 'Projetos de terraplenagem, drenagem, loteamentos e obras que exigem análise detalhada do relevo.',
+      benefits: 'Visualização precisa do terreno, cálculo de volumes de corte e aterro, e planejamento eficiente da infraestrutura.',
+      when: 'Quando o projeto exige análise do relevo e planejamento de movimentação de terra.',
+      img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
+      highlight: 'Plantas entregues em DWG/DXF e PDF, compatíveis com AutoCAD e softwares de projeto.',
+      wa: 'Olá! Gostaria de saber mais sobre o serviço de Levantamento Planialtimétrico.'
+    },
+    'Georreferenciamento': {
+      desc: 'Processo de vinculação de imóveis rurais e urbanos ao Sistema Geodésico Brasileiro (SGB), conforme as normas do INCRA, garantindo a regularização fundiária e legal do seu imóvel.',
+      use: 'Regularização fundiária, desmembramento, unificação e registro de imóveis rurais no cartório de registro de imóveis.',
+      benefits: 'Regularização legal do imóvel, facilidade em transações imobiliárias, financiamentos bancários e segurança jurídica.',
+      when: 'Para regularização, venda, herança, partilha ou financiamento de imóvel rural.',
+      img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+      highlight: 'Certificação junto ao INCRA com ART do responsável técnico habilitado.',
+      wa: 'Olá! Gostaria de saber mais sobre o serviço de Georreferenciamento.'
+    },
+    'Topografia com Drone': {
+      desc: 'Utilizamos VANTs (drones) com tecnologia RTK para mapeamento aéreo de alta precisão e produtividade. Geramos ortomosaicos, modelos digitais de superfície e nuvem de pontos em tempo reduzido.',
+      use: 'Grandes áreas, mineração, agricultura de precisão, obras lineares, fiscalização e áreas de difícil acesso.',
+      benefits: 'Alta velocidade de coleta, redução de custos em grandes áreas, ortomosaicos de alta resolução e modelos 3D detalhados.',
+      when: 'Quando a área é extensa ou de difícil acesso para os métodos topográficos tradicionais.',
+      img: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80',
+      highlight: 'Drone RTK com precisão centimétrica sem necessidade de pontos de controle adicionais em campo.',
+      wa: 'Olá! Gostaria de saber mais sobre o serviço de Topografia com Drone.'
+    },
+    'Gestão de Drenagem Urbana': {
+      desc: 'Desenvolvemos estudos hidrológicos, projetos e fiscalização de sistemas de microdrenagem e macrodrenagem para controle eficiente das águas pluviais em ambientes urbanos e empreendimentos.',
+      use: 'Projetos de loteamento, obras viárias, áreas industriais, condomínios e solução de problemas de alagamento.',
+      benefits: 'Prevenção de enchentes, conformidade com legislação ambiental, maior vida útil das obras e valorização do empreendimento.',
+      when: 'No planejamento de novos empreendimentos, obras de infraestrutura ou na solução de problemas de alagamento.',
+      img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+      highlight: 'Projetos em conformidade com as normas ABNT e legislações municipais vigentes.',
+      wa: 'Olá! Gostaria de saber mais sobre o serviço de Gestão de Drenagem Urbana.'
+    },
+    'Laser Scanner Terrestre': {
+      desc: 'Tecnologia de captura 3D de alta densidade que gera nuvem de pontos precisa de estruturas e ambientes. Ideal para documentação, engenharia reversa e modelagem BIM com máxima fidelidade.',
+      use: 'Retrofit de edificações, patrimônio histórico, plantas industriais, obras civis e projetos de modelagem BIM.',
+      benefits: 'Alta precisão sem contato físico, documentação completa e detalhada, redução de retrabalho e integração com softwares BIM.',
+      when: 'Para modernização de instalações, documentação de estruturas existentes, projetos de retrofit ou BIM.',
+      img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80',
+      highlight: 'Nuvem de pontos com alta densidade para máxima fidelidade na documentação de estruturas.',
+      wa: 'Olá! Gostaria de saber mais sobre o serviço de Laser Scanner Terrestre.'
+    }
+  };
+
+  const svcOverlay = document.getElementById('svc-modal');
+  if (svcOverlay) {
+    const svcTitle    = document.getElementById('svc-modal-title');
+    const svcIcon     = document.getElementById('svc-icon');
+    const svcDesc     = document.getElementById('svc-desc');
+    const svcUse      = document.getElementById('svc-use');
+    const svcBenefits = document.getElementById('svc-benefits');
+    const svcWhen     = document.getElementById('svc-when');
+    const svcImg      = document.getElementById('svc-img');
+    const svcHlight   = document.getElementById('svc-highlight-text');
+    const svcWaBtn    = document.getElementById('svc-wa-btn');
+
+    function openSvc(article) {
+      const title = article.querySelector('h3').textContent.trim();
+      const d = SVC_DATA[title];
+      if (!d) return;
+      svcTitle.textContent    = title;
+      svcIcon.innerHTML       = article.querySelector('.icon').innerHTML;
+      svcDesc.textContent     = d.desc;
+      svcUse.textContent      = d.use;
+      svcBenefits.textContent = d.benefits;
+      svcWhen.textContent     = d.when;
+      svcImg.src              = d.img;
+      svcImg.alt              = title;
+      svcHlight.textContent   = d.highlight;
+      svcWaBtn.href = 'https://wa.me/553499166794?text=' + encodeURIComponent(d.wa);
+      svcOverlay.classList.add('open');
+      svcOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      svcOverlay.querySelector('.svc-modal-box').scrollTop = 0;
+    }
+
+    function closeSvc() {
+      svcOverlay.classList.remove('open');
+      svcOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.service .more').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openSvc(btn.closest('.service'));
+      });
+    });
+
+    svcOverlay.querySelector('.svc-close').addEventListener('click', closeSvc);
+    svcOverlay.querySelector('.svc-proj-btn').addEventListener('click', closeSvc);
+    svcOverlay.addEventListener('click', (e) => { if (e.target === svcOverlay) closeSvc(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && svcOverlay.classList.contains('open')) closeSvc();
+    });
+  }
+
+
   /* -------- Smooth-scroll anchors -------- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
