@@ -273,7 +273,7 @@ p  { margin: 0 0 1em; text-wrap: pretty; }
   overflow: hidden;
   pointer-events: none;
 }
-.hero-video-bg iframe {
+.hero-video-bg video {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
@@ -281,13 +281,8 @@ p  { margin: 0 0 1em; text-wrap: pretty; }
   height: 56.25vw;
   min-height: 100%;
   min-width: 177.78vh;
+  object-fit: cover;
   pointer-events: none;
-}
-.video-block {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: transparent;
 }
 .hero::after {
   content: "";
